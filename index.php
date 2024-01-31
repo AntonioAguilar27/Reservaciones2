@@ -39,17 +39,32 @@
                 <div class="container-fluid">
                     <form class="sign-box" action="./registro.php" method="POST">
                         <header class="sign-title">Ingresa los datos de la reservación</header>
+                        <?php if(isset($_SESSION['completado'])): ?>
+                        <div class="alert alert-success">
+                        <?= $_SESSION['completado']?>
+                        </div>
+                        <?php elseif(isset($_SESSION['errores']['general'])): ?>
+                        <div class="alerta alerta-exito">
+                        <?= $_SESSION['errores']['general']?>
+                        </div>   
+                        <?php elseif(isset($_SESSION['errores']['duplicado'])): ?>
+                        <div class="alerta alerta-exito">
+                        <?= $_SESSION['errores']['duplicado']?>
+                        </div>       
+                        <?php endif; ?>
                         <div class="form-group">
                             <label for="form-group">Nombre</label>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="nombre"/>
+                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre') : '' ?>
                         </div>
                         <div class="form-group">
                             <label for="form-group">Apellido</label>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="apellido"/>
+                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'apellido') : '' ?>
                         </div>
                         <div class="form-group">
                             <label for="form-group">Numero de personas</label>
@@ -59,7 +74,8 @@
                         </div>
                         <div class="form-group">
                             <label for="pwd" class="form-label">Numero de telefono</label>
-                            <input type="password" class="form-control" id="pwd" name="numtel">
+                            <input type="text" class="form-control" id="pwd" name="numtel">
+                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'numtel') : '' ?>
                         </div>
                         <div class="form-group">
                             <label for="form-group">Fecha reservación</label>
@@ -71,18 +87,20 @@
                             <label for="form-group">¿Cumpleañero?</label>
                         </div>
                         <div class="form-group">
-                            <select name="seleccion" id="cumpl" class="form-control" name="cumpl">
+                            <select  id="cumpl" class="form-control" name="cumpl">
                                 <option value="defecto">Selecciona una opción</option>
                                 <option value="si">Si</option>
                                 <option value="no">No</option>
                             </select>
+                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'cumpl') : '' ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1" class="form-label mt-2">Comentarios</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-rounded">Enviar</button>
+                        <button type="submit" class="btn btn-rounded" name="submit">Enviar</button>
                     </form>
+                    <?php borrarErrores(); ?> 
                 </div>
         </div>
     </div><!--.page-center-->
