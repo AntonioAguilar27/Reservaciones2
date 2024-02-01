@@ -36,8 +36,8 @@
                     <img src="img/logo.png" alt="">
                 </div>
             </div>
-                <div class="container-fluid">
-                    <form class="sign-box" action="./registro.php" method="POST">
+                <div class="container-fluid rounded-3 ">
+                    <form class="sign-box" action="./includes/registro.php" method="POST">
                         <header class="sign-title">Ingresa los datos de la reservación</header>
                         <?php if(isset($_SESSION['completado'])): ?>
                         <div class="alert alert-success">
@@ -70,7 +70,7 @@
                             <label for="form-group">Numero de personas</label>
                         </div>
                         <div class="form-group">
-                            <input type="number" id="numero" name="numper" step="1" value="0" class="form-control" placeholder="Numero de personas">
+                            <input type="number" id="numero" name="numper" step="1" value="" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="pwd" class="form-label">Numero de telefono</label>
@@ -98,7 +98,8 @@
                             <label for="exampleFormControlTextarea1" class="form-label mt-2">Comentarios</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-rounded" name="submit">Enviar</button>
+                        <button type="submit" class="btn btn-success" name="submit">Enviar</button>
+                        <p class="sign-note">¿Tienes una cuenta?<a href="login.php"> Inicia sesión</a></p>
                     </form>
                     <?php borrarErrores(); ?> 
                 </div>

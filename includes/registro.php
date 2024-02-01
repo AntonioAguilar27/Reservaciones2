@@ -1,12 +1,11 @@
 <?php  
-require_once 'includes/conexion.php';
+require_once './conexion.php';
 
 if(isset($_POST['submit'])){
     // CONEXION A LA BD
 
 
     // INICIAR SESION
-    
     // recoger los valores del formulario
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false ;
     $apellido = isset($_POST['apellido']) ? $_POST['apellido'] : false ;
@@ -41,7 +40,7 @@ if(isset($_POST['submit'])){
     // VALIDAR NUMERO DE TELEFONO
     if (empty($numtel)) {
         $telefono_validado = false;
-        $errores['numtel'] = "El telefono esta vacio!1";
+        $errores['numtel'] = "El telefono esta vacio!";
     } elseif (!preg_match('/^\d{10}$/', $numtel)) {
         $telefono_validado = false;
         $errores['numtel'] = "el telefono debe de tener 10 digitos!!";
@@ -97,5 +96,5 @@ if (count($errores) == 0) {
 } else {
     var_dump("no entro primer if");
 }
-header("Location: index.php");
+header("Location: ../index.php");
 ?>
