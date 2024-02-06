@@ -5,5 +5,5 @@ if(!isset($_SESSION)){
 
  
 if(!isset($_SESSION['usuario'])){
-    header("Location: includes/inicio.php");
+    header("Location: ./login.php");
 }

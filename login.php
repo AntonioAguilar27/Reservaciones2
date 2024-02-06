@@ -49,7 +49,7 @@
                     <!--<button type="button" class="close">
                     <!--<button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
-                    </button>--><p class="sign-note">¿No tienes cuenta?<a href="./registro-usuario.php"> Registrate</a></p>
+                    </button>--><p class="sign-note">Volver a <a href="./index.php"> crear reservacion</a></p>
                 </form>
                 <?php borrarErrores(); ?> 
             </div>
