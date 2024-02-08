@@ -1,3 +1,10 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <div>
 		<header class="site-header custom-bg">
 			<div class="container-fluid ">
@@ -11,7 +18,6 @@
 				<button id="show-hide-sidebar-toggle" class="show-hide-sidebar">
 					<span>toggle menu</span>
 				</button>
-		
 				<button class="hamburger hamburger--htla">
 					<span>toggle menu</span>
 				</button>
@@ -42,29 +48,30 @@
 				</div><!--.site-header-content-->
 			</div><!--.container-fluid-->
 		</header><!--.site-header-->
-
+		
 		<div class="mobile-menu-left-overlay"></div>
 		<nav class="side-menu">
 			<section>
 				<ul class="side-menu-list">
 					<li>
-						<a href="#">
+						<a href="hacer_reservacion.php">
 							<i class="tag-color red"></i>
-							<span class="lbl">Reservaciones</span>
+							<span class="lbl">Hacer reservación</span>
 						</a>
 					</li>
 					<li>
-						<a href="registro-usuario.php">
+						<a href="registro-usuario.php" id="boton">
 							<i class="tag-color green"></i>
 							<span class="lbl">Registrar usuario</span>
 						</a>
 					</li>
+					
 				</ul>
 			</section>
 		</nav><!--.side-menu-->
 		<script src="js/lib/jquery/jquery.min.js"></script>
 		<script src="js/lib/tether/tether.min.js"></script>
-		<script src="js/lib/bootstrap/bootstrap.min.js"></script>
+	    <script src="js/lib/bootstrap/bootstrap.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
 	</div>
