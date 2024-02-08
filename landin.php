@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="with-side-menu custom-bg-white">
+<body class="with-side-menu">
 <?php require_once'includes/nav.php'?>
 <div class="page-content">
 	    <div class="container-fluid">

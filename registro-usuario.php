@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="with-side-menu">
     <header>
       <?php require_once'includes/nav.php'?>
     </header>

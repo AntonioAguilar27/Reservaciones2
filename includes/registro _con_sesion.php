@@ -1,5 +1,6 @@
 <?php  
-require_once './conexion.php';
+require_once 'conexion.php';
+var_dump($id);
 
 if(isset($_POST['submit'])){
     // CONEXION A LA BD
@@ -15,6 +16,7 @@ if(isset($_POST['submit'])){
     $cumpl = isset($_POST['cumpl']) ? $_POST['cumpl'] : false;
     $comentarios = isset($_POST['textarea']) ? $_POST['textarea'] : false;
 
+    var_dump($id);
 
     // array errores 
 
@@ -69,8 +71,6 @@ if (count($errores) == 0) {
     $cumpl = mysqli_real_escape_string($db, $cumpl);
     $comentarios = mysqli_real_escape_string($db, $comentarios);
     $id = $_SESSION['usuario']['id'];
-    // Sentencia preparada para evitar inyección SQL
-    
     if(isset($_SESSION['usuario'])){
         $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?,$id )";
         $stmt = mysqli_prepare($db, $sql);
@@ -78,6 +78,9 @@ if (count($errores) == 0) {
         $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?,2)";
         $stmt = mysqli_prepare($db, $sql);
     }
+    // Sentencia preparada para evitar inyección SQL
+    
+
     if ($stmt) {
         // Enlazar parámetros
         mysqli_stmt_bind_param($stmt, "ssssss", $nombre, $apellido, $numtel, $numper, $cumpl, $comentarios);
@@ -101,9 +104,5 @@ if (count($errores) == 0) {
 } else {
     var_dump("no entro primer if");
 }
-if(isset($_SESSION['usuario'])){
-    header("Location: ../hacer_reservacion.php");
-} else {
-    header("Location: ../index.php");
-}
+// header("Location: ./landin.php");
 ?>

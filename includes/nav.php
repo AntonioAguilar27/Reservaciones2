@@ -9,7 +9,7 @@
 		<header class="site-header custom-bg">
 			<div class="container-fluid ">
 		
-				<a href="#" class="site-logo">
+				<a href="landin.php" class="site-logo">
 					<div class="custom-bg">
 					<img src="./img/logo.png" alt="logo empresa">
 					</div>
