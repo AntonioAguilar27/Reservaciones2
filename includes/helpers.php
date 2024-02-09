@@ -46,7 +46,7 @@ function totalReservaciones($db){
 }
 
 function calcularCumpleaneros($db){
-	$sql = "SELECT COUNT(*) FROM  reserva WHERE cumpleanero = 'si';";
+	$sql = "SELECT COUNT(*) FROM  reserva WHERE cumpleanero = 'si' and fecha = CURDATE();";
 	$total_cumpleaneros = mysqli_query($db, $sql);
 
 	$resultado = array();
