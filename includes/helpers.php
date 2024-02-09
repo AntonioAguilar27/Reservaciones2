@@ -33,6 +33,7 @@ function conseguirCategorias($conexion){
 	return $result;
 }
 
+
 function conseguirUltimasEntradas($conexion){
 	$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e" .
        " INNER JOIN categorias c ON e.categoria_id = c.id" .
@@ -47,4 +48,14 @@ function conseguirUltimasEntradas($conexion){
 }
 
 
-	 
+function totalReservaciones($db){
+    $sql = "SELECT COUNT(*) FROM reserva WHERE fecha = CURDATE();";
+    $suma_reservas = mysqli_query($db, $sql);
+
+    $resultado = array();
+    if ($suma_reservas && mysqli_num_rows($suma_reservas) >= 1){
+        $resultado = $suma_reservas;
+    }
+    return $suma_reservas;
+}
+

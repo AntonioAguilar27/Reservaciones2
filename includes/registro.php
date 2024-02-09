@@ -66,21 +66,22 @@ if (count($errores) == 0) {
     $apellido = mysqli_real_escape_string($db, $apellido);
     $numtel = mysqli_real_escape_string($db, $numtel);
     $numper = mysqli_real_escape_string($db, $numper);
+    $fecha = mysqli_real_escape_string($db, $fecha);
     $cumpl = mysqli_real_escape_string($db, $cumpl);
     $comentarios = mysqli_real_escape_string($db, $comentarios);
     $id = $_SESSION['usuario']['id'];
     // Sentencia preparada para evitar inyección SQL
     
     if(isset($_SESSION['usuario'])){
-        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?,$id )";
+        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?,$id )";
         $stmt = mysqli_prepare($db, $sql);
     } else {
-        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?,2)";
+        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?,2)";
         $stmt = mysqli_prepare($db, $sql);
     }
     if ($stmt) {
         // Enlazar parámetros
-        mysqli_stmt_bind_param($stmt, "ssssss", $nombre, $apellido, $numtel, $numper, $cumpl, $comentarios);
+        mysqli_stmt_bind_param($stmt, "sssssss", $nombre, $apellido, $numtel, $numper, $fecha, $cumpl, $comentarios);
 
         // Ejecutar la sentencia
         if (mysqli_stmt_execute($stmt)) {

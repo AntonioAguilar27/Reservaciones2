@@ -1,4 +1,6 @@
 <?php require_once 'includes/redireccion.php';?>
+<?php require_once './includes/conexion.php'; ?>
+<?php require_once './includes/helpers.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -33,36 +35,39 @@
 	    <div class="container-fluid">
 	        <div class="row">
 	            <div class="col-xl-6">
-	                <div class="chart-statistic-box">
-	                    <div class="chart-txt">
-	                        <div class="chart-txt-top">
-	                            <p><span class="unit">$</span><span class="number">1540</span></p>
-	                            <p class="caption">Week income</p>
-	                        </div>
-	                        <table class="tbl-data">
-	                            <tr>
-	                                <td class="price color-purple">120$</td>
-	                                <td>Orders</td>
-	                            </tr>
-	                            <tr>
-	                                <td class="price color-yellow">15$</td>
-	                                <td>Investments</td>
-	                            </tr>
-	                            <tr>
-	                                <td class="price color-lime">55$</td>
-	                                <td>Others</td>
-	                            </tr>
-	                        </table>
-	                    </div>
-	                </div><!--.chart-statistic-box-->
+				<div class="row">
+				<?php
+				// Llamar a la función totalReservaciones() y obtener el resultado
+				$total_reservaciones = totalReservaciones($db);
+				// Obtener el valor de la consulta COUNT(*)
+				$total_reservaciones_numero = mysqli_fetch_array($total_reservaciones)[0];
+				?>
+	                    <div class="col-sm-6">
+							<article class="statistic-box red">
+								<div>
+									<!-- Mostrar el número de reservaciones -->
+									<div class="number"><?php echo $total_reservaciones_numero; ?></div>
+									<div class="caption"><div>Reservaciones para hoy</div></div>
+								</div>
+							</article>
+						</div><!--.col-->
+	                    <div class="col-sm-6">
+	                        <article class="statistic-box purple">
+	                            <div>
+	                                <div class="number">12</div>
+	                                <div class="caption"><div>Personas reservadas</div></div>
+	                            </div>
+	                        </article>
+	                    </div><!--.col-->
+	                </div><!--.row-->
 	            </div><!--.col-->
 	            <div class="col-xl-6">
 	                <div class="row">
 	                    <div class="col-sm-6">
 	                        <article class="statistic-box red">
 	                            <div>
-	                                <div class="number"></div>
-	                                <div class="caption"><div>Reservaciones</div></div>
+	                                <div class="number">5</div>
+	                                <div class="caption"><div>Cumpleañeros</div></div>
 	                            </div>
 	                        </article>
 	                    </div><!--.col-->
@@ -74,27 +79,11 @@
 	                            </div>
 	                        </article>
 	                    </div><!--.col-->
-	                    <div class="col-sm-6">
-	                        <article class="statistic-box yellow">
-	                            <div>
-	                                <div class="number">104</div>
-	                                <div class="caption"><div>Cumpleañeros</div></div>
-	                            </div>
-	                        </article>
-	                    </div><!--.col-->
 	                </div><!--.row-->
 	            </div><!--.col-->
 	        </div><!--.row-->
 
 
-
-
-
-
-
-
-
-	
 	        <div class="row">
 	            <div class="col-xl-6 dahsboard-column">
 	                <section class="box-typical box-typical-dashboard panel panel-default scrollable">

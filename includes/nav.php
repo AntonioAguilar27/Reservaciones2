@@ -56,15 +56,15 @@
 					<li>
 						<a href="hacer_reservacion.php">
 							<i class="tag-color red"></i>
-							<span class="lbl">Hacer reservación</span>
+							<span class="lbl">Nueva reservación</span>
 						</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="registro-usuario.php" id="boton">
 							<i class="tag-color green"></i>
 							<span class="lbl">Registrar usuario</span>
 						</a>
-					</li>
+					</li> -->
 					
 				</ul>
 			</section>
