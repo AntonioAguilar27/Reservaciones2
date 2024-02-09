@@ -36,33 +36,6 @@
 	        <div class="row">
 	            <div class="col-xl-6">
 				<div class="row">
-				<?php
-				// Llamar a la función totalReservaciones() y obtener el resultado
-				$total_reservaciones = totalReservaciones($db);
-				// Obtener el valor de la consulta COUNT(*)
-				$total_reservaciones_numero = mysqli_fetch_array($total_reservaciones)[0];
-				?>
-	                    <div class="col-sm-6">
-							<article class="statistic-box red">
-								<div>
-									<!-- Mostrar el número de reservaciones -->
-									<div class="number"><?php echo $total_reservaciones_numero; ?></div>
-									<div class="caption"><div>Reservaciones para hoy</div></div>
-								</div>
-							</article>
-						</div><!--.col-->
-	                    <div class="col-sm-6">
-	                        <article class="statistic-box purple">
-	                            <div>
-	                                <div class="number">12</div>
-	                                <div class="caption"><div>Personas reservadas</div></div>
-	                            </div>
-	                        </article>
-	                    </div><!--.col-->
-	                </div><!--.row-->
-	            </div><!--.col-->
-	            <div class="col-xl-6">
-	                <div class="row">
 	                    <div class="col-sm-6">
 	                        <article class="statistic-box red">
 	                            <div>
@@ -76,6 +49,40 @@
 	                            <div>
 	                                <div class="number">12</div>
 	                                <div class="caption"><div>Personas reservadas</div></div>
+	                            </div>
+	                        </article>
+	                    </div><!--.col-->
+	                </div><!--.row-->
+	            </div><!--.col-->
+	            <div class="col-xl-6">
+				<div class="row">
+						<?php
+						// Llamar a la función totalReservaciones() y obtener el resultado
+						$total_reservaciones = totalReservaciones($db);
+						// Obtener el valor de la consulta COUNT(*)
+						$total_reservaciones_numero = mysqli_fetch_array($total_reservaciones)[0];
+						?>
+
+						<?php
+						// Llamar a la función totalReservaciones() y obtener el resultado
+						$total_cumpleaneros = calcularCumpleaneros($db);
+						// Obtener el valor de la consulta COUNT(*)
+						$total_cumpleaneros_numero = mysqli_fetch_array($total_cumpleaneros)[0];
+						?>
+	                    <div class="col-sm-6">
+							<article class="statistic-box red">
+								<div>
+									<!-- Mostrar el número de reservaciones -->
+									<div class="number"><?php echo $total_reservaciones_numero; ?></div>
+									<div class="caption"><div>Reservaciones para hoy</div></div>
+								</div>
+							</article>
+						</div><!--.col-->
+	                    <div class="col-sm-6">
+	                        <article class="statistic-box purple">
+	                            <div>
+	                                <div class="number"><?php echo $total_cumpleaneros_numero; ?></div>
+	                                <div class="caption"><div>Cumpleañeros</div></div>
 	                            </div>
 	                        </article>
 	                    </div><!--.col-->
@@ -446,3 +453,7 @@
 	</div><!--.page-content-->
 </body>
 </html>
+
+
+
+					

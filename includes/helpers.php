@@ -34,20 +34,6 @@ function conseguirCategorias($conexion){
 }
 
 
-function conseguirUltimasEntradas($conexion){
-	$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e" .
-       " INNER JOIN categorias c ON e.categoria_id = c.id" .
-       " ORDER BY e.id DESC LIMIT 4";
-	$entradas=  mysqli_query($conexion, $sql);
-
-	$resultado = array();
-	if ($entradas && mysqli_num_rows($entradas) >= 1){
-		$resultado = $entradas;
-	}
-	return $entradas;
-}
-
-
 function totalReservaciones($db){
     $sql = "SELECT COUNT(*) FROM reserva WHERE fecha = CURDATE();";
     $suma_reservas = mysqli_query($db, $sql);
@@ -59,3 +45,13 @@ function totalReservaciones($db){
     return $suma_reservas;
 }
 
+function calcularCumpleaneros($db){
+	$sql = "SELECT COUNT(*) FROM  reserva WHERE cumpleanero = 'si';";
+	$total_cumpleaneros = mysqli_query($db, $sql);
+
+	$resultado = array();
+    if ($total_cumpleaneros && mysqli_num_rows($total_cumpleaneros) >= 1){
+        $resultado = $total_cumpleaneros;
+    }
+    return $total_cumpleaneros;
+}
