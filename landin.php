@@ -31,38 +31,59 @@
 </head>
 <body class="with-side-menu">
 <?php require_once'includes/nav.php'?>
-<div class="page-content">
-	    <div class="container-fluid">
-	        <div class="row">
-	            <div class="col-xl-6">
-				<div class="row">
-	                    <div class="col-sm-6">
-	                        <article class="statistic-box red">
-	                            <div>
-	                                <div class="number">5</div>
-	                                <div class="caption"><div>Cumpleañeros</div></div>
-	                            </div>
-	                        </article>
-	                    </div><!--.col-->
-	                    <div class="col-sm-6">
-	                        <article class="statistic-box purple">
-	                            <div>
-	                                <div class="number">12</div>
-	                                <div class="caption"><div>Personas reservadas</div></div>
-	                            </div>
-	                        </article>
-	                    </div><!--.col-->
-	                </div><!--.row-->
-	            </div><!--.col-->
-	            <div class="col-xl-6">
-				<div class="row">
 						<?php
 						// Llamar a la función totalReservaciones() y obtener el resultado
 						$total_reservaciones = totalReservaciones($db);
 						// Obtener el valor de la consulta COUNT(*)
 						$total_reservaciones_numero = mysqli_fetch_array($total_reservaciones)[0];
 						?>
-
+						<?php
+						// Llamar a la función totalReservaciones() y obtener el resultado
+						$total_colab = calcularColab($db);
+						// Obtener el valor de la consulta COUNT(*)
+						$total_colab_numeros = mysqli_fetch_array($total_colab)[0];
+						?>
+<div class="page-content">
+	    <div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-6">
+					<div class="tbl-cell">
+						<h2>Resumen para hoy <?php echo date("d/m/Y"); ?></h3>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xl-6">
+					<div class="tbl-cell">
+						<br></br>
+					</div>
+				</div>
+			</div>
+	        <div class="row">
+	            <div class="col-xl-6">
+				<div class="row">
+				<div class="col-sm-6">
+							<article class="statistic-box green">
+								<div>
+									<!-- Mostrar el número de reservaciones -->
+									<div class="number"><?php echo $total_reservaciones_numero; ?></div>
+									<div class="caption"><div>Reservaciones</div></div>
+								</div>
+							</article>
+						</div><!--.col-->
+	                    <div class="col-sm-6">
+							<article class="statistic-box purple">
+								<div>
+									<!-- Mostrar el número de reservaciones -->
+									<div class="number"><?php echo $total_colab_numeros; ?></div>
+									<div class="caption"><div>Colaboraciones</div></div>
+								</div>
+							</article>
+						</div><!--.col-->
+	                </div><!--.row-->
+	            </div><!--.col-->
+	            <div class="col-xl-6">
+				<div class="row">
 						<?php
 						// Llamar a la función totalReservaciones() y obtener el resultado
 						$total_cumpleaneros = calcularCumpleaneros($db);
@@ -70,16 +91,7 @@
 						$total_cumpleaneros_numero = mysqli_fetch_array($total_cumpleaneros)[0];
 						?>
 	                    <div class="col-sm-6">
-							<article class="statistic-box red">
-								<div>
-									<!-- Mostrar el número de reservaciones -->
-									<div class="number"><?php echo $total_reservaciones_numero; ?></div>
-									<div class="caption"><div>Reservaciones para hoy</div></div>
-								</div>
-							</article>
-						</div><!--.col-->
-	                    <div class="col-sm-6">
-	                        <article class="statistic-box purple">
+	                        <article class="statistic-box yellow">
 	                            <div>
 	                                <div class="number"><?php echo $total_cumpleaneros_numero; ?></div>
 	                                <div class="caption"><div>Cumpleañeros</div></div>

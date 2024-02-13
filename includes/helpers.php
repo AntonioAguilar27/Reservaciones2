@@ -55,3 +55,14 @@ function calcularCumpleaneros($db){
     }
     return $total_cumpleaneros;
 }
+
+function calcularColab($db){
+	$sql = "SELECT COUNT(*) FROM  reserva WHERE colab = 'si' and fecha = CURDATE();";
+	$total_colab = mysqli_query($db, $sql);
+
+	$resultado = array();
+    if ($total_colab && mysqli_num_rows($total_colab) >= 1){
+        $resultado = $total_colab;
+    }
+    return $total_colab;
+}

@@ -13,6 +13,7 @@ if(isset($_POST['submit'])){
     $numtel = isset($_POST['numtel']) ? $_POST['numtel'] : false ;
     $fecha = isset($_POST['fecha']) ? $_POST['fecha'] : false ;
     $cumpl = isset($_POST['cumpl']) ? $_POST['cumpl'] : false;
+    $colab = isset($_POST['colab']) ? $_POST['colab'] : false;
     $comentarios = isset($_POST['textarea']) ? $_POST['textarea'] : false;
 
 
@@ -56,6 +57,15 @@ if(isset($_POST['submit'])){
         $cumpl_validado = true;
     }
 
+    // VALIDAR COLAB
+
+    if (empty($colab) || $colab === 'defecto') {
+        $colab_validado = false;
+        $errores['colab'] = "Debes seleccionar una opcion para colaboración!!";
+    } else {
+        $colab_validado = true;
+    }
+
     // registro 
 
     $guardar_reserva = false;
@@ -68,20 +78,21 @@ if (count($errores) == 0) {
     $numper = mysqli_real_escape_string($db, $numper);
     $fecha = mysqli_real_escape_string($db, $fecha);
     $cumpl = mysqli_real_escape_string($db, $cumpl);
+    $colab = mysqli_real_escape_string($db, $colab);
     $comentarios = mysqli_real_escape_string($db, $comentarios);
     $id = $_SESSION['usuario']['id'];
     // Sentencia preparada para evitar inyección SQL
     
     if(isset($_SESSION['usuario'])){
-        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?,$id )";
+        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?,$id )";
         $stmt = mysqli_prepare($db, $sql);
     } else {
-        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?,2)";
+        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?,2)";
         $stmt = mysqli_prepare($db, $sql);
     }
     if ($stmt) {
         // Enlazar parámetros
-        mysqli_stmt_bind_param($stmt, "sssssss", $nombre, $apellido, $numtel, $numper, $fecha, $cumpl, $comentarios);
+        mysqli_stmt_bind_param($stmt, "ssssssss", $nombre, $apellido, $numtel, $numper, $fecha, $cumpl, $colab, $comentarios);
 
         // Ejecutar la sentencia
         if (mysqli_stmt_execute($stmt)) {

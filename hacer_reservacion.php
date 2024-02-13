@@ -98,6 +98,19 @@
                             </select>
                             <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'cumpl') : '' ?>
                         </div>
+
+                        <div class="form-group">
+                            <label for="form-group">¿Colaboracion?</label>
+                        </div>
+                        <div class="form-group">
+                            <select  id="colab" class="form-control" name="colab">
+                                <option value="defecto">Selecciona una opción</option>
+                                <option value="si">Si</option>
+                                <option value="no">No</option>
+                            </select>
+                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'colab') : '' ?>
+                        </div>
+
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1" class="form-label mt-2">Comentarios</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea"></textarea>
