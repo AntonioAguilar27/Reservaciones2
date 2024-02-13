@@ -33,7 +33,7 @@
 					<div class="tbl">
 						<div class="tbl-row">
 							<div class="tbl-cell">
-								<h3>Reegistrar usuario</h3>
+								<h3>Registrar usuario</h3>
 								<ol class="breadcrumb breadcrumb-simple">
 									<li><a href="landin.php">Panel principal</a></li>
 									<li class="active">Registrar usuario</li>
@@ -42,7 +42,7 @@
 						</div>
 					</div>
 				</header>
-				<form class="sign-box" action="./includes/registro.php" method="POST">
+				<form class="sign-box" action="./includes/vali-registro.php" method="POST">
                         <?php if(isset($_SESSION['completado'])): ?>
                         <div class="alert alert-success">
                         <?= $_SESSION['completado']?>
@@ -72,18 +72,31 @@
                         </div>
                         <div class="form-group">
                             <label for="pwd" class="form-label">Numero de telefono</label>
-                            <input type="email" class="form-control" id="pwd" name="numtel">
+                            <input type="text" class="form-control" id="pwd" name="numtel">
                             <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'numtel') : '' ?>
                         </div>
 						<div class="form-group">
 						<label for="pwd" class="form-label">Correo</label>
-                            <input type="text" class="form-control" name="apellido"/>
-                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'apellido') : '' ?>
+                            <input type="email" class="form-control" name="email"/>
+                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'email') : '' ?>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1" class="form-label mt-2">Comentarios</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea"></textarea>
-                        </div>
+						<div class="form-group">
+						<label for="pwd" class="form-label">Contraseña</label>
+						<input type="password" class="form-control" name="password"/>
+						<?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'apellido') : '' ?>
+						</div>
+						<div class="form-group">
+							<div class="checkbox-toggle">
+								<input type="checkbox" id="check-toggle-1" name="admin" />
+								<label for="check-toggle-1">Admin</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="checkbox-toggle">
+								<input type="checkbox" id="check-toggle-2" name="rp" />
+								<label for="check-toggle-2">RP</label>
+							</div>
+						</div>
                         <button type="submit" class="btn btn-success" name="submit">Enviar</button>
                     </form>
                     <?php borrarErrores(); ?>
