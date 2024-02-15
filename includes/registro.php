@@ -84,7 +84,7 @@ if (count($errores) == 0) {
     // Sentencia preparada para evitar inyección SQL
     
     if(isset($_SESSION['usuario'])){
-        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?,$id )";
+        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP())";
         $stmt = mysqli_prepare($db, $sql);
     } else {
         $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?,2)";
@@ -92,7 +92,8 @@ if (count($errores) == 0) {
     }
     if ($stmt) {
         // Enlazar parámetros
-        mysqli_stmt_bind_param($stmt, "ssssssss", $nombre, $apellido, $numtel, $numper, $fecha, $cumpl, $colab, $comentarios);
+        mysqli_stmt_bind_param($stmt, "sssssssss", $nombre, $apellido, $numtel, $numper, $fecha, $cumpl, $colab, $comentarios, $id);
+
 
         // Ejecutar la sentencia
         if (mysqli_stmt_execute($stmt)) {

@@ -66,3 +66,19 @@ function calcularColab($db){
     }
     return $total_colab;
 }
+
+function conseguirUltimasReservas($conexion) {
+    $sql = "SELECT r.nombre, r.apellido, r.personas, DATE_FORMAT(r.fecha, '%d/%m/%Y') AS fecha_formateada, r.cumpleanero, r.colab, u.nombre AS nombre_usuario, u.apellido AS apellido_usuario, DATE_FORMAT(r.fecha_creacion, '%d/%m/%Y %H:%i:%s') AS fecha_creacion_formateada
+            FROM reserva r
+            JOIN usuarios u ON r.id_usuario = u.id
+            ORDER BY r.id DESC LIMIT 5";
+
+    $reservas = mysqli_query($conexion, $sql);
+
+    $resultado = array();
+    if ($reservas && mysqli_num_rows($reservas) >= 1) {
+        $resultado = $reservas;
+    }
+    return $resultado;
+}
+

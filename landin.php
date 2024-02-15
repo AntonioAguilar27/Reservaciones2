@@ -48,7 +48,60 @@
 			<div class="row">
 				<div class="col-xl-6">
 					<div class="tbl-cell">
-						<h2>Resumen para hoy <?php echo date("d/m/Y"); ?></h3>
+						<h2>
+						<?php
+														// Obtener el nombre del día de la semana
+							$nombre_dia = date("l");
+							if ($nombre_dia == 'Monday') {
+								$nombre_dia = 'Lunes';
+							} elseif ($nombre_dia == 'Tuesday') {
+								$nombre_dia = 'Martes';
+							} elseif ($nombre_dia == 'Wednesday') {
+								$nombre_dia = 'Miércoles';
+							} elseif ($nombre_dia == 'Thursday') {
+								$nombre_dia = 'Jueves';
+							} elseif ($nombre_dia == 'Friday') {
+								$nombre_dia = 'Viernes';
+							} elseif ($nombre_dia == 'Saturday') {
+								$nombre_dia = 'Sábado';
+							} elseif ($nombre_dia == 'Sunday') {
+								$nombre_dia = 'Domingo';
+							}
+							// Obtener el día del mes
+							$dia_mes = date("j");
+							// Obtener el nombre del mes
+							$nombre_mes = date("F");
+							if ($nombre_mes == 'January') {
+								$nombre_mes = 'Enero';
+							} elseif ($nombre_mes == 'February') {
+								$nombre_mes = 'Febrero';
+							} elseif ($nombre_mes == 'March') {
+								$nombre_mes = 'Marzo';
+							} elseif ($nombre_mes == 'April') {
+								$nombre_mes = 'Abril';
+							} elseif ($nombre_mes == 'May') {
+								$nombre_mes = 'Mayo';
+							} elseif ($nombre_mes == 'June') {
+								$nombre_mes = 'Junio';
+							} elseif ($nombre_mes == 'July') {
+								$nombre_mes = 'Julio';
+							} elseif ($nombre_mes == 'August') {
+								$nombre_mes = 'Agosto';
+							} elseif ($nombre_mes == 'September') {
+								$nombre_mes = 'Septiembre';
+							} elseif ($nombre_mes == 'October') {
+								$nombre_mes = 'Octubre';
+							} elseif ($nombre_mes == 'November') {
+								$nombre_mes = 'Noviembre';
+							} elseif ($nombre_mes == 'December') {
+								$nombre_mes = 'Diciembre';
+							}
+							// Obtener el año
+							$anio = date("Y");
+							// Imprimir la fecha en el formato deseado
+							echo "$nombre_dia $dia_mes de $nombre_mes de $anio";
+							?>
+						</h2>
 					</div>
 				</div>
 			</div>
@@ -104,94 +157,44 @@
 
 
 	        <div class="row">
-	            <div class="col-xl-6 dahsboard-column">
-	                <section class="box-typical box-typical-dashboard panel panel-default scrollable">
-	                    <header class="box-typical-header panel-heading">
-	                        <h3 class="panel-title">Recent orders</h3>
-	                    </header>
-	                    <div class="box-typical-body panel-body">
-	                        <table class="tbl-typical">
-	                            <tr>
-	                                <th><div>Status</div></th>
-	                                <th><div>Clients</div></th>
-	                                <th align="center"><div>Orders#</div></th>
-	                                <th align="center"><div>Date</div></th>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-primary">Paid</span>
-	                                    <span class="label label-success">Active</span>
-	                                </td>
-	                                <td>John Doe</td>
-	                                <td align="center">3435362</td>
-	                                <td class="color-blue-grey" nowrap align="center"><span class="semibold">Today</span> 8:30</td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-primary">Paid</span>
-	                                    <span class="label label-success">Active</span>
-	                                </td>
-	                                <td>Thomas Bayer</td>
-	                                <td align="center">3435362</td>
-	                                <td class="color-blue-grey" nowrap align="center"><span class="semibold">Today</span> 16:30</td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-primary">Paid</span>
-	                                    <span class="label label-default">Inactive</span>
-	                                </td>
-	                                <td>Nicolas Karabat</td>
-	                                <td align="center">3435362</td>
-	                                <td class="color-blue-grey" nowrap align="center"><span class="semibold">Yesterday</span></td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-default">Unpaid</span>
-	                                    <span class="label label-default">Inactive</span>
-	                                </td>
-	                                <td>Alexandre Pome</td>
-	                                <td align="center">3435362</td>
-	                                <td class="color-blue-grey" nowrap align="center">23th May</td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-primary">Paid</span>
-	                                    <span class="label label-success">Active</span>
-	                                </td>
-	                                <td>John Doe</td>
-	                                <td align="center">3435362</td>
-	                                <td class="color-blue-grey" nowrap align="center"><span class="semibold">Today</span> 8:30</td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-primary">Paid</span>
-	                                    <span class="label label-success">Active</span>
-	                                </td>
-	                                <td>Thomas Bayer</td>
-	                                <td align="center">3435362</td>
-	                                <td class="color-blue-grey" nowrap align="center"><span class="semibold">Today</span> 16:30</td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-primary">Paid</span>
-	                                    <span class="label label-default">Inactive</span>
-	                                </td>
-	                                <td>Nicolas Karabat</td>
-	                                <td align="center">3435362</td>
-	                                <td class="color-blue-grey" nowrap align="center"><span class="semibold">Yesterday</span></td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-default">Unpaid</span>
-	                                    <span class="label label-default">Inactive</span>
-	                                </td>
-	                                <td>Alexandre Pome</td>
-	                                <td align="center">3435362</td>
-	                                <td class="color-blue-grey" nowrap align="center">23th May</td>
-	                            </tr>
-	                        </table>
-	                    </div><!--.box-typical-body-->
-	                </section><!--.box-typical-dashboard-->
+	            <div class="col-xl-12 dahsboard-column">
+					<?php
+					// Obtener las últimas 4 reservas
+					$reservas = conseguirUltimasReservas($db);
+					?>
+
+					<section class="box-typical box-typical-dashboard panel panel-default scrollable">
+						<header class="box-typical-header panel-heading">
+							<h3 class="panel-title m-lg-1 ">Ultimas reservaciones</h3>
+						</header>
+						<div class="box-typical-body panel-body">
+						<table class="tbl-typical">
+							<tr>
+								<th><div>Nombre</div></th>
+								<th><div>Apellido</div></th>
+								<th><div>Personas</div></th>
+								<th><div>Fecha</div></th>
+								<th><div>Cumplea&ntilde;ero</div></th>
+								<th><div>Colaboracion</div></th>
+								<th><div>Reservado por</div></th>
+								<th><div>Fecha reservación</div></th>
+							</tr>
+							<?php foreach ($reservas as $reserva): ?>
+							<tr>
+								<td><?php echo htmlspecialchars($reserva['nombre']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['apellido']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['personas']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['fecha_formateada']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['cumpleanero']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['colab']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['nombre_usuario']) . " " . htmlspecialchars($reserva['apellido_usuario']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['fecha_creacion_formateada']); ?></td>
+
+							</tr>
+							<?php endforeach; ?>
+						</table>
+						</div><!--.box-typical-body-->
+					</section><!--.box-typical-dashboard-->
 	                <section class="box-typical box-typical-dashboard panel panel-default scrollable">
 	                    <header class="box-typical-header panel-heading">
 	                        <h3 class="panel-title">Comments</h3>
@@ -275,53 +278,6 @@
 	                </section>
 	            </div><!--.col-->
 	            <div class="col-xl-6 dahsboard-column">
-	                <section class="box-typical box-typical-dashboard panel panel-default scrollable">
-	                    <header class="box-typical-header panel-heading">
-	                        <h3 class="panel-title">Recent tickets</h3>
-	                    </header>
-	                    <div class="box-typical-body panel-body">
-	                        <table class="tbl-typical">
-	                            <tr>
-	                                <th><div>Status</div></th>
-	                                <th><div>Subject</div></th>
-	                                <th align="center"><div>Department</div></th>
-	                                <th align="center"><div>Date</div></th>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-success">Open</span>
-	                                </td>
-	                                <td>Website down for one week</td>
-	                                <td align="center">Support</td>
-	                                <td nowrap align="center"><span class="semibold">Today</span> 8:30</td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-success">Open</span>
-	                                </td>
-	                                <td>Restoring default settings</td>
-	                                <td align="center">Support</td>
-	                                <td nowrap align="center"><span class="semibold">Today</span> 16:30</td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-warning">Progress</span>
-	                                </td>
-	                                <td>Loosing control on server</td>
-	                                <td align="center">Support</td>
-	                                <td nowrap align="center"><span class="semibold">Yesterday</span></td>
-	                            </tr>
-	                            <tr>
-	                                <td>
-	                                    <span class="label label-danger">Closed</span>
-	                                </td>
-	                                <td>Authorizations keys</td>
-	                                <td align="center">Support</td>
-	                                <td nowrap align="center">23th May</td>
-	                            </tr>
-	                        </table>
-	                    </div><!--.box-typical-body-->
-	                </section><!--.box-typical-dashboard-->
 	                <section class="box-typical box-typical-dashboard panel panel-default scrollable">
 	                    <header class="box-typical-header panel-heading">
 	                        <h3 class="panel-title">Contacts</h3>
