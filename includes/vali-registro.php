@@ -97,5 +97,5 @@ if(isset($_POST['submit'])){
           $_SESSION['errores'] = $errores;
     }
 }
-// header("Location: ../registro-usuario.php");
+header("Location: ../registro-usuario.php");
 ?>

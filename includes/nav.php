@@ -54,6 +54,12 @@
 			<section>
 				<ul class="side-menu-list">
 					<li>
+						<a href="reservaciones.php" id="boton">
+							<i class="tag-color red"></i>
+							<span class="lbl">Reservaciones</span>
+						</a>
+					</li>
+					<li>
 						<a href="hacer_reservacion.php">
 							<i class="tag-color red"></i>
 							<span class="lbl">Nueva reservación</span>
@@ -61,11 +67,10 @@
 					</li>
 					<li>
 						<a href="registro-usuario.php" id="boton">
-							<i class="tag-color green"></i>
+							<i class="tag-color red"></i>
 							<span class="lbl">Registrar usuario</span>
 						</a>
 					</li>
-					
 				</ul>
 			</section>
 		</nav><!--.side-menu-->

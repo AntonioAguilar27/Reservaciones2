@@ -162,7 +162,7 @@
 					// Obtener las últimas 4 reservas
 					$reservas = conseguirUltimasReservas($db);
 					?>
-
+					<a href="reservaciones.php"  style="text-decoration: none; color: inherit;">
 					<section class="box-typical box-typical-dashboard panel panel-default scrollable">
 						<header class="box-typical-header panel-heading">
 							<h3 class="panel-title m-lg-1 ">Ultimas reservaciones</h3>
@@ -172,7 +172,7 @@
 							<tr>
 								<th><div>Nombre</div></th>
 								<th><div>Apellido</div></th>
-								<th><div>Personas</div></th>
+								<th><div>personas</div></th>
 								<th><div>Fecha</div></th>
 								<th><div>Cumplea&ntilde;ero</div></th>
 								<th><div>Colaboracion</div></th>
@@ -195,6 +195,7 @@
 						</table>
 						</div><!--.box-typical-body-->
 					</section><!--.box-typical-dashboard-->
+					</a>
 	                <section class="box-typical box-typical-dashboard panel panel-default scrollable">
 	                    <header class="box-typical-header panel-heading">
 	                        <h3 class="panel-title">Comments</h3>
