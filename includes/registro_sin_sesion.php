@@ -80,16 +80,13 @@ if (count($errores) == 0) {
     $cumpl = mysqli_real_escape_string($db, $cumpl);
     $colab = mysqli_real_escape_string($db, $colab);
     $comentarios = mysqli_real_escape_string($db, $comentarios);
-    $id = $_SESSION['usuario']['id'];
+    $id = 2;
     // Sentencia preparada para evitar inyección SQL
     
-    if(isset($_SESSION['usuario'])){
+    if(!isset($_SESSION['usuario'])){
         $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?,CURRENT_TIMESTAMP(),?)";
         $stmt = mysqli_prepare($db, $sql);
-    } else {
-        $sql = "INSERT INTO reserva VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?,CURRENT_TIMESTAMP(),2)";
-        $stmt = mysqli_prepare($db, $sql);
-    }
+    } 
     if ($stmt) {
         // Enlazar parámetros
         mysqli_stmt_bind_param($stmt, "sssssssss", $nombre, $apellido, $numtel, $numper, $fecha, $cumpl, $colab, $comentarios, $id);

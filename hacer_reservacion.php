@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Registro Usuario</title>
+	<title>Registro reservacion</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -88,29 +88,17 @@
                             <input type="date" id="fecha" name="fecha" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="form-group">¿Cumpleañero?</label>
-                        </div>
-                        <div class="form-group">
-                            <select  id="cumpl" class="form-control" name="cumpl">
-                                <option value="defecto">Selecciona una opción</option>
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
-                            </select>
-                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'cumpl') : '' ?>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="form-group">¿Colaboracion?</label>
-                        </div>
-                        <div class="form-group">
-                            <select  id="colab" class="form-control" name="colab">
-                                <option value="defecto">Selecciona una opción</option>
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
-                            </select>
-                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'colab') : '' ?>
-                        </div>
-
+							<div class="checkbox-toggle">
+								<input type="checkbox" id="check-toggle-1" name="cumpl" />
+								<label for="check-toggle-1">Cumpleañero</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="checkbox-toggle">
+								<input type="checkbox" id="check-toggle-2" name="colab" />
+								<label for="check-toggle-2">Colaboración</label>
+							</div>
+						</div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1" class="form-label mt-2">Comentarios</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea"></textarea>

@@ -183,9 +183,9 @@
 							<tr>
 								<td><?php echo htmlspecialchars($reserva['nombre']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['apellido']); ?></td>
-								<td><?php echo htmlspecialchars($reserva['personas']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['numper']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['fecha_formateada']); ?></td>
-								<td><?php echo htmlspecialchars($reserva['cumpleanero']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['cumpl']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['colab']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['nombre_usuario']) . " " . htmlspecialchars($reserva['apellido_usuario']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['fecha_creacion_formateada']); ?></td>

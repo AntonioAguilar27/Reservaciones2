@@ -46,7 +46,7 @@ function totalReservaciones($db){
 }
 
 function calcularCumpleaneros($db){
-	$sql = "SELECT COUNT(*) FROM  reserva WHERE cumpleanero = 'si' and fecha = CURDATE();";
+	$sql = "SELECT COUNT(*) FROM  reserva WHERE cumpl = true and fecha = CURDATE();";
 	$total_cumpleaneros = mysqli_query($db, $sql);
 
 	$resultado = array();
@@ -57,7 +57,7 @@ function calcularCumpleaneros($db){
 }
 
 function calcularColab($db){
-	$sql = "SELECT COUNT(*) FROM  reserva WHERE colab = 'si' and fecha = CURDATE();";
+	$sql = "SELECT COUNT(*) FROM  reserva WHERE colab = true and fecha = CURDATE();";
 	$total_colab = mysqli_query($db, $sql);
 
 	$resultado = array();
@@ -68,11 +68,10 @@ function calcularColab($db){
 }
 
 function conseguirUltimasReservas($conexion) {
-    $sql = "SELECT r.nombre, r.apellido, r.personas, DATE_FORMAT(r.fecha, '%d/%m/%Y') AS fecha_formateada, r.cumpleanero, r.colab, u.nombre AS nombre_usuario, u.apellido AS apellido_usuario, DATE_FORMAT(r.fecha_creacion, '%d/%m/%Y %H:%i:%s') AS fecha_creacion_formateada
-            FROM reserva r
-            JOIN usuarios u ON r.id_usuario = u.id
-            ORDER BY r.id DESC LIMIT 4";
-
+    $sql = "SELECT r.nombre, r.apellido, r.numper, DATE_FORMAT(r.fecha, '%d/%m/%Y') AS fecha_formateada, r.cumpl, r.colab, u.nombre AS nombre_usuario, u.apellido AS apellido_usuario, DATE_FORMAT(r.fecha_registro, '%d/%m/%Y %H:%i:%s') AS fecha_creacion_formateada
+        FROM reserva r
+        JOIN usuarios u ON r.id_usuario = u.id
+        ORDER BY r.id DESC LIMIT 4";
     $reservas = mysqli_query($conexion, $sql);
 
     $resultado = array();

@@ -37,7 +37,7 @@
                 </div>
             </div>
                 <div class="container-fluid rounded-3 ">
-                    <form class="sign-box" action="./includes/registro.php" method="POST">
+                    <form class="sign-box" action="./includes/registro_sin_sesion.php" method="POST">
                         <header class="sign-title">Ingresa los datos de la reservación</header>
                         <?php if(isset($_SESSION['completado'])): ?>
                         <div class="alert alert-success">
@@ -84,16 +84,17 @@
                             <input type="date" id="fecha" name="fecha" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="form-group">¿Cumpleañero?</label>
-                        </div>
-                        <div class="form-group">
-                            <select  id="cumpl" class="form-control" name="cumpl">
-                                <option value="defecto">Selecciona una opción</option>
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
-                            </select>
-                            <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'cumpl') : '' ?>
-                        </div>
+							<div class="checkbox-toggle">
+								<input type="checkbox" id="check-toggle-1" name="cumpl" />
+								<label for="check-toggle-1">Cumpleañero</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="checkbox-toggle">
+								<input type="checkbox" id="check-toggle-2" name="colab" />
+								<label for="check-toggle-2">Colaboración</label>
+							</div>
+						</div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1" class="form-label mt-2">Comentarios</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea"></textarea>
