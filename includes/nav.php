@@ -13,8 +13,7 @@
 					<div class="custom-bg">
 					<img src="./img/logo.png" alt="logo empresa">
 					</div>
-				</a>
-		
+				</a>		
 				<button id="show-hide-sidebar-toggle" class="show-hide-sidebar">
 					<span>toggle menu</span>
 				</button>
@@ -34,6 +33,7 @@
 									<a class="dropdown-item" href="./includes/cerrar.php"><span class="font-icon glyphicon glyphicon-log-out"></span>Logout</a>
 								</div>
 							</div>
+					
 						</div><!--.site-header-shown-->
 		
 						<div class="mobile-menu-right-overlay"></div>
