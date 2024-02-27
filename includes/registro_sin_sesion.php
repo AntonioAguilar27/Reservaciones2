@@ -48,23 +48,6 @@ if(isset($_POST['submit'])){
     } else {
         $telefono_validado = true;
     }
-    // VALIDAR CUMPLEAÑERO
-
-    if (empty($cumpl) || $cumpl === 'defecto') {
-        $cumpl_validado = false;
-        $errores['cumpl'] = "Debes seleccionar una opcion para cumpleañero!!";
-    } else {
-        $cumpl_validado = true;
-    }
-
-    // VALIDAR COLAB
-
-    if (empty($colab) || $colab === 'defecto') {
-        $colab_validado = false;
-        $errores['colab'] = "Debes seleccionar una opcion para colaboración!!";
-    } else {
-        $colab_validado = true;
-    }
 
     // registro 
 

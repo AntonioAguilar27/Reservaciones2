@@ -188,7 +188,7 @@
 								<td><?php echo htmlspecialchars($reserva['cumpl']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['colab']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['nombre_usuario']) . " " . htmlspecialchars($reserva['apellido_usuario']); ?></td>
-								<td><?php echo htmlspecialchars($reserva['fecha_creacion_formateada']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['comentarios']); ?></td>
 
 							</tr>
 							<?php endforeach; ?>

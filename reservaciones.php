@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Registro Usuario</title>
+	<title>Reservaciones</title>
 
 	<link href="img/favicon.144x144.png" rel="apple-touch-icon" type="image/png" sizes="144x144">
 	<link href="img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
@@ -21,29 +21,68 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="with-side-menu">
       <?php require_once'includes/nav.php'?>
       <div class="page-content" >
 		<div class="container-fluid">
 			<div class="row ">
-				<div class="col-xl-2">
-				</div>
+				
 				<div class="col-xl-6">
-				<header class="section-header">
-					<div class="tbl">
-						<div class="tbl-row">
-							<div class="tbl-cell">
-								<h3>Reservaciones</h3>
-								<ol class="breadcrumb breadcrumb-simple">
-									<li><a href="landin.php">Panel principal</a></li>
-									<li class="active">Reservaciones</li>
-								</ol>
+					<header class="section-header">
+						<div class="tbl">
+							<div class="tbl-row">
+								<div class="tbl-cell">
+									<h3>Reservaciones</h3>
+									<ol class="breadcrumb breadcrumb-simple">
+										<li><a href="landin.php">Panel principal</a></li>
+										<li class="active">Reservaciones</li>
+									</ol>
+								</div>
 							</div>
 						</div>
-					</div>
-				</header>
+					</header>
 				</div>
 			</div> <!-- /.row -->
+			<div class="row">
+			<div class="col-xl-12">
+					<?php
+						// Obtener las últimas 4 reservas
+						$reservas = conseguirTodasReservas($db);
+					?>
+					<section class="box-typical">
+							<header class="box-typical-header panel-heading">
+								<h3 class="panel-title m-lg-1 ">Ultimas reservaciones</h3>
+							</header>
+							<div class="box-typical-body panel-body">
+								<table class="tbl-typical">
+									<tr>
+										<th><div>Nombre</div></th>
+										<th><div>Apellido</div></th>
+										<th><div>personas</div></th>
+										<th><div>Fecha</div></th>
+										<th><div>Cumplea&ntilde;ero</div></th>
+										<th><div>Colaboracion</div></th>
+										<th><div>Reservado por</div></th>
+										<th><div>Fecha reservación</div></th>
+									</tr>
+									<?php foreach ($reservas as $reserva): ?>
+									<tr>
+										<td><?php echo htmlspecialchars($reserva['nombre']); ?></td>
+										<td><?php echo htmlspecialchars($reserva['apellido']); ?></td>
+										<td><?php echo htmlspecialchars($reserva['numper']); ?></td>
+										<td><?php echo htmlspecialchars($reserva['fecha_formateada']); ?></td>
+										<td><?php echo htmlspecialchars($reserva['cumpl']); ?></td>
+										<td><?php echo htmlspecialchars($reserva['colab']); ?></td>
+										<td><?php echo htmlspecialchars($reserva['nombre_usuario']) . " " . htmlspecialchars($reserva['apellido_usuario']); ?></td>
+										<td><?php echo htmlspecialchars($reserva['fecha_creacion_formateada']); ?></td>
+
+									</tr>
+									<?php endforeach; ?>
+								</table>
+							</div><!--.box-typical-body-->
+						</section><!--.box-typical-dashboard-->
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

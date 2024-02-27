@@ -68,10 +68,24 @@ function calcularColab($db){
 }
 
 function conseguirUltimasReservas($conexion) {
-    $sql = "SELECT r.nombre, r.apellido, r.numper, DATE_FORMAT(r.fecha, '%d/%m/%Y') AS fecha_formateada, r.cumpl, r.colab, u.nombre AS nombre_usuario, u.apellido AS apellido_usuario, DATE_FORMAT(r.fecha_registro, '%d/%m/%Y %H:%i:%s') AS fecha_creacion_formateada
+    $sql = "SELECT r.nombre, r.apellido, r.numper, r.comentarios, DATE_FORMAT(r.fecha, '%d/%m/%Y') AS fecha_formateada, r.cumpl, r.colab, u.nombre AS nombre_usuario, u.apellido AS apellido_usuario
         FROM reserva r
         JOIN usuarios u ON r.id_usuario = u.id
         ORDER BY r.id DESC LIMIT 4";
+    $reservas = mysqli_query($conexion, $sql);
+
+    $resultado = array();
+    if ($reservas && mysqli_num_rows($reservas) >= 1) {
+        $resultado = $reservas;
+    }
+    return $resultado;
+}
+
+function conseguirTodasReservas($conexion) {
+    $sql = "SELECT r.nombre, r.apellido, r.numper, DATE_FORMAT(r.fecha, '%d/%m/%Y') AS fecha_formateada, r.cumpl, r.colab, u.nombre AS nombre_usuario, u.apellido AS apellido_usuario, DATE_FORMAT(r.fecha_registro, '%d/%m/%Y %H:%i:%s') AS fecha_creacion_formateada
+        FROM reserva r
+        JOIN usuarios u ON r.id_usuario = u.id
+        ORDER BY r.id DESC";
     $reservas = mysqli_query($conexion, $sql);
 
     $resultado = array();
