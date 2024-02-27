@@ -1,6 +1,5 @@
 <?php require_once './includes/conexion.php'; ?>
 <?php require_once './includes/helpers.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head lang="en">
@@ -43,6 +42,15 @@
 					</header>
 				</div>
 			</div> <!-- /.row -->
+			<div class="row">
+				<div class="col-xl-6">
+					<input 
+					type="select">
+				</div>
+				<div class="col-xl-6">
+					<h2>Hola</h2>
+				</div>
+			</div>
 			<div class="row">
 			<div class="col-xl-12">
 					<?php

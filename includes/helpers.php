@@ -95,3 +95,15 @@ function conseguirTodasReservas($conexion) {
     return $resultado;
 }
 
+
+function obtenerNombresPersonas($conexion) {
+    $nombres = array();
+    $sql = "SELECT nombre FROM usuarios";
+    $result = mysqli_query($conexion, $sql);
+
+    $resultado = array();
+    if ($result && mysqli_num_rows($result) >= 1) {
+        $resultado = $result;
+    }
+    return $resultado;
+}

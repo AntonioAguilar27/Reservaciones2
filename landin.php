@@ -160,7 +160,7 @@
 	            <div class="col-xl-12 dahsboard-column">
 					<?php
 					// Obtener las últimas 4 reservas
-					$reservas = conseguirUltimasReservas($db);
+					$reservas = conseguirUltimasReservas($conexion);
 					?>
 					<a href="reservaciones.php"  style="text-decoration: none; color: inherit;">
 					<section class="box-typical box-typical-dashboard panel panel-default scrollable">
