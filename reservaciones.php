@@ -59,7 +59,7 @@
 					?>
 					<section class="box-typical">
 							<header class="box-typical-header panel-heading">
-								<h3 class="panel-title m-lg-1 ">Ultimas reservaciones</h3>
+								<h3 class="panel-title m-lg-1 ">Reservaciones</h3>
 							</header>
 							<div class="box-typical-body panel-body">
 								<table class="tbl-typical">
@@ -79,8 +79,8 @@
 										<td><?php echo htmlspecialchars($reserva['apellido']); ?></td>
 										<td><?php echo htmlspecialchars($reserva['numper']); ?></td>
 										<td><?php echo htmlspecialchars($reserva['fecha_formateada']); ?></td>
-										<td><?php echo htmlspecialchars($reserva['cumpl']); ?></td>
-										<td><?php echo htmlspecialchars($reserva['colab']); ?></td>
+										<td><?php $reserva['cumpl'] == 1 ? $reserva['cumpl'] = 'si' : $reserva['cumpl'] = 'no';  echo htmlspecialchars($reserva['cumpl']); ?></td>
+										<td><?php $reserva['colab'] == 1 ? $reserva['colab'] = 'si' : $reserva['colab'] = 'no';  echo htmlspecialchars($reserva['colab']); ?></td>
 										<td><?php echo htmlspecialchars($reserva['nombre_usuario']) . " " . htmlspecialchars($reserva['apellido_usuario']); ?></td>
 										<td><?php echo htmlspecialchars($reserva['fecha_creacion_formateada']); ?></td>
 

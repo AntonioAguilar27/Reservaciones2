@@ -160,7 +160,7 @@
 	            <div class="col-xl-12 dahsboard-column">
 					<?php
 					// Obtener las últimas 4 reservas
-					$reservas = conseguirUltimasReservas($conexion);
+					$reservas = conseguirUltimasReservas($db);
 					?>
 					<a href="reservaciones.php"  style="text-decoration: none; color: inherit;">
 					<section class="box-typical box-typical-dashboard panel panel-default scrollable">
@@ -185,10 +185,10 @@
 								<td><?php echo htmlspecialchars($reserva['apellido']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['numper']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['fecha_formateada']); ?></td>
-								<td><?php echo htmlspecialchars($reserva['cumpl']); ?></td>
-								<td><?php echo htmlspecialchars($reserva['colab']); ?></td>
+								<td><?php $reserva['cumpl'] == 1 ? $reserva['cumpl'] = 'si' : $reserva['cumpl'] = 'no';  echo htmlspecialchars($reserva['cumpl']); ?></td>
+								<td><?php $reserva['colab'] == 1 ? $reserva['colab'] = 'si' : $reserva['colab'] = 'no';  echo htmlspecialchars($reserva['colab']); ?></td>
 								<td><?php echo htmlspecialchars($reserva['nombre_usuario']) . " " . htmlspecialchars($reserva['apellido_usuario']); ?></td>
-								<td><?php echo htmlspecialchars($reserva['comentarios']); ?></td>
+								<td><?php echo htmlspecialchars($reserva['fecha_creacion_formateada']); ?></td>
 
 							</tr>
 							<?php endforeach; ?>
