@@ -64,27 +64,40 @@
 							<div class="box-typical-body panel-body">
 								<table class="tbl-typical">
 									<tr>
-										<th><div>Nombre</div></th>
-										<th><div>Apellido</div></th>
-										<th><div>personas</div></th>
-										<th><div>Fecha</div></th>
-										<th><div>Cumplea&ntilde;ero</div></th>
-										<th><div>Colaboracion</div></th>
-										<th><div>Reservado por</div></th>
-										<th><div>Fecha reservación</div></th>
+											<th><div>Nombre</div></th>
+											<th><div>Apellido</div></th>
+											<th><div>personas</div></th>
+											<th><div>Fecha</div></th>
+											<th><div>Cumplea&ntilde;ero</div></th>
+											<th><div>Colaboracion</div></th>
+											<th><div>Reservado por</div></th>
+											<th><div>Fecha reservación</div></th>
+											<th><div>Accion</div></th>
 									</tr>
 									<?php foreach ($reservas as $reserva): ?>
-									<tr>
-										<td><?php echo htmlspecialchars($reserva['nombre']); ?></td>
-										<td><?php echo htmlspecialchars($reserva['apellido']); ?></td>
-										<td><?php echo htmlspecialchars($reserva['numper']); ?></td>
-										<td><?php echo htmlspecialchars($reserva['fecha_formateada']); ?></td>
-										<td><?php $reserva['cumpl'] == 1 ? $reserva['cumpl'] = 'si' : $reserva['cumpl'] = 'no';  echo htmlspecialchars($reserva['cumpl']); ?></td>
-										<td><?php $reserva['colab'] == 1 ? $reserva['colab'] = 'si' : $reserva['colab'] = 'no';  echo htmlspecialchars($reserva['colab']); ?></td>
-										<td><?php echo htmlspecialchars($reserva['nombre_usuario']) . " " . htmlspecialchars($reserva['apellido_usuario']); ?></td>
-										<td><?php echo htmlspecialchars($reserva['fecha_creacion_formateada']); ?></td>
+										<tr>
+											<td><?php echo htmlspecialchars($reserva['nombre']); ?></td>
+											<td><?php echo htmlspecialchars($reserva['apellido']); ?></td>
+											<td><?php echo htmlspecialchars($reserva['numper']); ?></td>
+											<td><?php echo htmlspecialchars($reserva['fecha_formateada']); ?></td>
+											<td><?php $reserva['cumpl'] == 1 ? $reserva['cumpl'] = 'si' : $reserva['cumpl'] = 'no';  echo htmlspecialchars($reserva['cumpl']); ?></td>
+											<td><?php $reserva['colab'] == 1 ? $reserva['colab'] = 'si' : $reserva['colab'] = 'no';  echo htmlspecialchars($reserva['colab']); ?></td>
+											<td><?php echo htmlspecialchars($reserva['nombre_usuario']) . " " . htmlspecialchars($reserva['apellido_usuario']); ?></td>
+											<td><?php echo htmlspecialchars($reserva['fecha_creacion_formateada']); ?></td>
+											<td>
+												<div class="form-group">
+													<div class="row">
+														<div class="col-xl-4">
+															<button class="btn btn-inline btn-warning-outline">Editar</button>
+														</div>
+														<div class="col-xl-4">
+															<button class="btn btn-inline btn-danger-outline">Eliminar</button>
+														</div>
+													</div>
+												</div>
+											</td>
 
-									</tr>
+										</tr>
 									<?php endforeach; ?>
 								</table>
 							</div><!--.box-typical-body-->
