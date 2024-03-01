@@ -1,4 +1,7 @@
 <?php 
+require_once 'conexion.php'; 
+// var_dump($db);exit();
+
 
 function mostrarError ($errores, $campo){
     $alerta = '';
@@ -82,7 +85,7 @@ function conseguirUltimasReservas($conexion) {
 }
 
 function conseguirTodasReservas($conexion) {
-    $sql = "SELECT r.nombre, r.apellido, r.numper, DATE_FORMAT(r.fecha, '%d/%m/%Y') AS fecha_formateada, r.cumpl, r.colab, u.nombre AS nombre_usuario, u.apellido AS apellido_usuario, DATE_FORMAT(r.fecha_registro, '%d/%m/%Y %H:%i:%s') AS fecha_creacion_formateada
+    $sql = "SELECT r.id, r.nombre, r.apellido, r.numper, DATE_FORMAT(r.fecha, '%d/%m/%Y') AS fecha_formateada, r.cumpl, r.colab, u.nombre AS nombre_usuario, u.apellido AS apellido_usuario, DATE_FORMAT(r.fecha_registro, '%d/%m/%Y %H:%i:%s') AS fecha_creacion_formateada
         FROM reserva r
         JOIN usuarios u ON r.id_usuario = u.id
         ORDER BY r.id DESC";
@@ -107,3 +110,12 @@ function obtenerNombresPersonas($conexion) {
     }
     return $resultado;
 }
+
+if(isset($_GET["delete"])){
+        $sql = "DELETE FROM reserva WHERE id =" . $_GET["delete"];
+        mysqli_query($db, $sql);
+
+        header("Location: ../reservaciones.php");
+}
+
+

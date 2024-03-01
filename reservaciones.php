@@ -88,10 +88,14 @@
 												<div class="form-group">
 													<div class="row">
 														<div class="col-xl-4">
-															<button class="btn btn-inline btn-warning-outline">Editar</button>
+															<form action="./includes/helpers.php">
+																<button class="btn btn-inline btn-warning-outline">Editar</button>
+															</form>
 														</div>
 														<div class="col-xl-4">
-															<button class="btn btn-inline btn-danger-outline">Eliminar</button>
+															<form action="./includes/helpers.php" method="GET">
+																<button class="btn btn-inline btn-danger-outline" value="<?php echo htmlspecialchars($reserva['id']); ?>" name="delete" submit>Eliminar</button>
+															</form>
 														</div>
 													</div>
 												</div>
